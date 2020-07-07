@@ -1,0 +1,32 @@
+{
+  "name": "bemt",
+  "version": "1.0.3",
+  "description": "Utility for building BEM-syntax class names",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc src/index.ts -d true --outDir './'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brookjordan/bem-clsx.git"
+  },
+  "keywords": [
+    "BEM",
+    "clsx"
+  ],
+  "author": {
+    "name" : "Brook Jordan",
+    "email" : "brook@brook.dev",
+    "url" : "https://brook.dev/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brookjordan/bem-clsx/issues"
+  },
+  "homepage": "https://github.com/brookjordan/bem-clsx#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.18",
+    "typescript": "^3.9.6"
+  }
+}
