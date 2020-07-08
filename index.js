@@ -1,25 +1,3 @@
-/**
- * Used like:
- * const cls = buildBEMBuilder("block-name");
- *
- * let blockClass = cls();
- *   => "block-name"
- *
- * let modifiedBlockClass = cls({
- *   goodModifier: true,
- *   badModifier: false,
- * });
- *   => "block-name block-name--good-modifier"
- *
- * let elementClass = cls('an-element');
- *   => "block-name__an-element"
- *
- * let modifiedElementClass = cls('an-element', {
- *   aModifier: true,
- *   anotherModifier: true,
- * });
- *   => "block-name__an-element block-name__an-element--a-modifier block-name__an-element--another-modifier"
-**/
 var __spreadArrays = (this && this.__spreadArrays) || function () {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
     for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -39,7 +17,7 @@ function dasherize(str) {
         .replace(/[A-Z]/g, function (char) { return "-" + char.toLowerCase(); })
         .replace(/^-+/g, "");
 }
-function buildBEMBuilder(_blockName) {
+function bemt(_blockName) {
     var blockName = dasherize(_blockName);
     return function combineWithElementAndModifiers(element, modifiers) {
         if (modifiers === void 0) { modifiers = {}; }
@@ -66,7 +44,7 @@ function buildBEMBuilder(_blockName) {
         })).join(' ');
     };
 }
-Object.defineProperty(buildBEMBuilder, "modifierCheckStyle", {
+Object.defineProperty(bemt, "modifierCheckStyle", {
     get: function () {
         return modifierCheckStyle;
     },
@@ -74,4 +52,4 @@ Object.defineProperty(buildBEMBuilder, "modifierCheckStyle", {
         modifierCheckStyle = requestedCheckStyle;
     }
 });
-module.exports = buildBEMBuilder;
+module.exports = bemt;

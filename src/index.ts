@@ -1,26 +1,3 @@
-/**
- * Used like:
- * const cls = buildBEMBuilder("block-name");
- *
- * let blockClass = cls();
- *   => "block-name"
- *
- * let modifiedBlockClass = cls({
- *   goodModifier: true,
- *   badModifier: false,
- * });
- *   => "block-name block-name--good-modifier"
- *
- * let elementClass = cls('an-element');
- *   => "block-name__an-element"
- *
- * let modifiedElementClass = cls('an-element', {
- *   aModifier: true,
- *   anotherModifier: true,
- * });
- *   => "block-name__an-element block-name__an-element--a-modifier block-name__an-element--another-modifier"
-**/
-
 type Modifier = { [key: string]: boolean };
 const FALSY_CHECKS = {
   true<T>(condition: T) { return typeof condition !== 'boolean' || condition === false },
@@ -37,7 +14,7 @@ function dasherize(str: string) {
     .replace(/^-+/g, "");
 }
 
-function buildBEMBuilder(_blockName: string) {
+function bemt(_blockName: string) {
   const blockName = dasherize(_blockName);
   return function combineWithElementAndModifiers(element: (string | Modifier), modifiers: Modifier = {}) {
     const falseCheck = FALSY_CHECKS[modifierCheckStyle];
@@ -64,7 +41,7 @@ function buildBEMBuilder(_blockName: string) {
   }
 }
 
-Object.defineProperty(buildBEMBuilder, "modifierCheckStyle", {
+Object.defineProperty(bemt, "modifierCheckStyle", {
   get() {
     return modifierCheckStyle;
   },
@@ -73,4 +50,4 @@ Object.defineProperty(buildBEMBuilder, "modifierCheckStyle", {
   },
 });
 
-module.exports = buildBEMBuilder;
+module.exports = bemt;

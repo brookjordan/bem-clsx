@@ -3,6 +3,8 @@ Don’t want BEM style classes? Get BEMt…
 
 Everyone else? **USE** BEMt!
 
+<sub><sup>(419 bytes minified and brotlied, yadda yadda)</sup></sub>
+
 ## Install
 ```shell
 npm install bemt
